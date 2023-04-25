@@ -1,5 +1,4 @@
-import Head from "next/head";
-import styles from "../page.module.css";
+import styles from "../../page.module.css";
 
 export const metadata = {
   title: "Javascript",

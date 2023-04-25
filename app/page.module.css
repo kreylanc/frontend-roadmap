@@ -1,3 +1,16 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(var(--card-rgb), 0.5);
+  padding: 2rem;
+}
+.nav {
+  display: flex;
+}
+.link {
+  padding: 2em;
+  margin: 0 0.4em;
+}
 .main {
   display: flex;
   flex-direction: column;
