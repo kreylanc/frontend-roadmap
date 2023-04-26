@@ -8,8 +8,14 @@ const raleway = Raleway({
 });
 
 export const metadata = {
-  title: "Frontend Roadmap",
+  title: {
+    default: "Frontend Roadmap",
+    template: "%s | Frontend Roadmap",
+  },
   description: "A roadmap for frontend web development",
+  icons: {
+    icon: "/public/next.svg",
+  },
 };
 
 export default function RootLayout({ children }) {

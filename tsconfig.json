@@ -27,8 +27,8 @@
     "**/*.tsx",
     "schemas/index.js",
     "pages/api/route.js",
-    "lib/sanity.preview.js",
-    "lib/sanity.client.js"
+    "lib/sanity.preview.ts",
+    "lib/sanity.client.ts"
   ],
   "exclude": ["node_modules"]
 }

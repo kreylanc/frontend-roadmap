@@ -6,6 +6,14 @@ const raleway = Raleway({
   subsets: ["latin"],
 });
 
+export const metadata = {
+  title: "Frontend Roadmap Studio",
+  description: "Sanity Studio for major project; frontend roadmap",
+  icons: {
+    icon: "https://www.sanity.io/static/images/favicons/favicon-32x32.png",
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
