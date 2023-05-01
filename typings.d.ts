@@ -16,6 +16,12 @@ interface Post extends Base {
   description: string;
 }
 
+interface mainContent extends Base {
+  title: string;
+  slug: Slug;
+  post: Post[];
+}
+
 interface Image {
   _type: "image";
   asset: Reference;
@@ -48,6 +54,7 @@ interface Span {
 
 interface Category extends base {
   title: string;
+  slug: Slug;
 }
 
 interface MainImage {
