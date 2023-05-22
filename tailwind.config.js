@@ -9,7 +9,14 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        purple: "#100014",
+      },
+      fontFamily: {
+        sans: ["var(--font-raleway)"],
+      },
+    },
   },
   plugins: [],
 };
