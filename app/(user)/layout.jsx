@@ -3,8 +3,10 @@ import { Raleway } from "next/font/google";
 import Header from "../../components/Header";
 
 const raleway = Raleway({
-  weight: ["400", "700"],
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-raleway",
+  display: "swap",
 });
 
 export const metadata = {
@@ -20,8 +22,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={raleway.className}>
+    <html lang="en" className={raleway.variable}>
+      <body className="bg-purple font-sans">
         <Header />
         {children}
       </body>

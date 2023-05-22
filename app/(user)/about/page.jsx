@@ -1,13 +1,11 @@
-import styles from "../../page.module.css";
-
 export const metadata = {
-  title: "Javascript",
+  title: "About",
   description: "A roadmap for frontend web development",
 };
 
-export default function Javascript() {
+export default function page() {
   return (
-    <main className={styles.main}>
+    <main className="">
       <h1>Javascript Page</h1>
     </main>
   );

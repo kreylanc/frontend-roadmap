@@ -1,29 +1,33 @@
-import Image from "next/image";
-import urlFor from "../lib/urlFor";
+import Card from "./Card";
+import ClientSideRoute from "./ClientSideRoute";
 
 type Props = {
-  posts: Post[];
+  posts: mainContent[];
 };
-function BlogList({ posts }: Props) {
-  console.log(posts);
 
+//
+function BlogList({ posts }: Props) {
   return (
-    <div className="bg-stone-800">
+    <div className=" w-full lg:w-9/12 mx-auto mt-8" id="content">
       {/* Home page all posts display */}
-      {posts.map((post) => (
-        <div key={post._id} className="group flex flex-col cursor-pointer">
-          <div className="w-full h-80">
-            <h2>{post.title}</h2>
-            <p>{post.description}</p>
-            <Image
-              className="object-cover lg:object-center"
-              src={urlFor(post.mainImage).url()}
-              alt={post.title}
-              width={80}
-              height={80}
-            />
+      {posts.map((el) => (
+        <section className="p-4 md:p-8" key={el._id}>
+          <h2 className="text-2xl md:text-3xl font-bold">{el.title}</h2>
+          <div className="group flex flex-col gap-y-6 lg:flex-row gap-x-12 mt-8">
+            {el.post.map((item) => (
+              <ClientSideRoute
+                key={item._id}
+                route={`/${el.slug.current}/${item.slug.current}`}
+              >
+                <Card
+                  title={item.title}
+                  description={item.description}
+                  imgUrl={item.mainImage}
+                />
+              </ClientSideRoute>
+            ))}
           </div>
-        </div>
+        </section>
       ))}
     </div>
   );
