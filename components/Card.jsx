@@ -3,7 +3,7 @@ import urlFor from "../lib/urlFor";
 
 function Card({ title, description, imgUrl }) {
   return (
-    <div className="relative bg-neutral-700 h-full p-4 md:p-8 hover:translate-x-3 hover:-translate-y-3 transition-transform">
+    <div className="relative bg-neutral-700 h-full p-4 hover:bg-primaryYellow hover:text-zinc-900 group transition-colors">
       <h3 className="text-lg md:text-2xl font-semibold">{title}</h3>
       <p className="mt-2 text-base md:text-lg">{description}</p>
       {/* <Image

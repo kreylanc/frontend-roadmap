@@ -4,12 +4,16 @@ import Link from "next/link";
 import NavLink from "./NavLink";
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
+import { usePathname } from "next/navigation";
 
 function Header() {
   const [open, setOpen] = useState(false);
+  // get the current path name
+  const path = usePathname();
   return (
     <header className="relative flex justify-between items-center h-20 bg-zinc-800 px-4">
       <Link href="/" className="text-3xl">
+        {/* TODO: Add logo image */}
         🤡
       </Link>
       {!open ? (
