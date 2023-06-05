@@ -12,9 +12,14 @@ module.exports = {
     extend: {
       colors: {
         purple: "#100014",
+        primaryYellow: "#ffd500",
+        lavender: "#6e40a9",
       },
       fontFamily: {
-        sans: ["var(--font-raleway)"],
+        sans: ["var(--font-raleway)", "Arial", "sans-serif"],
+      },
+      gridTemplateColumns: {
+        fluid: "repeat(auto-fit, minmax(15em, 1fr))",
       },
     },
   },

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function ClientSideRoute({ children, route }) {
   return (
-    <Link href={route} className="h-auto md:w-96 bg-yellow-500">
+    <Link href={route} className="h-auto bg-primaryYellow">
       {children}
     </Link>
   );

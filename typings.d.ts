@@ -1,3 +1,5 @@
+declare module "react-refractor/all";
+
 type Base = {
   _createdAt: string;
   _id: string;
@@ -9,7 +11,7 @@ type Base = {
 interface Post extends Base {
   author: Author;
   body: Block[];
-  categories: Category[];
+  category: Category;
   mainImage: Image;
   slug: Slug;
   title: string;
@@ -50,6 +52,13 @@ interface Span {
   _type: "span";
   marks: string[];
   text: string;
+}
+
+interface Code {
+  _type: "code";
+  _key: string;
+  language: string;
+  code: string;
 }
 
 interface Category extends base {
