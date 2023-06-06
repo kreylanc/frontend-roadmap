@@ -26,7 +26,14 @@ async function page({ params: { slug } }: Props) {
   const query = groq`
   *[_type=='post' && slug.current == $slug][0] {
     ...,
-    category->
+    category->,
+    body[]{
+      ...,
+      markDefs[]{
+        ...,
+        'url': "/" + item->category->slug.current + "/" + item->slug.current
+      }
+    }
   }
   `;
 

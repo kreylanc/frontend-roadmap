@@ -27,6 +27,7 @@ export default {
         { title: "H3", value: "h3" },
         { title: "H4", value: "h4" },
         { title: "Quote", value: "blockquote" },
+        ,
       ],
       lists: [{ title: "Bullet", value: "bullet" }],
       // Marks let you mark up inline text in the block editor.
@@ -36,9 +37,25 @@ export default {
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
+          { title: "Code Line", value: "code" },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
+          {
+            name: "internalLink",
+            type: "object",
+            title: "Internal Link",
+            fields: [
+              {
+                name: "item",
+                type: "reference",
+                to: [{ type: "post" }],
+              },
+            ],
+            blockEditor: {
+              icon: () => <div>🔗</div>,
+            },
+          },
           {
             title: "URL",
             name: "link",
@@ -48,6 +65,11 @@ export default {
                 title: "URL",
                 name: "href",
                 type: "url",
+              },
+              {
+                title: "Open in new window",
+                name: "blank",
+                type: "boolean",
               },
             ],
           },
