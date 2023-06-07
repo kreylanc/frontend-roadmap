@@ -13,7 +13,7 @@ import post from "../../schemas/post";
 const query = groq`
   *[_type=='category'] {
     ...,
-    'post': *[_type=='post' && category._ref == ^._id]
+    'post': *[_type=='post' && category._ref == ^._id] | order(_createdAt asc)
 } | order(_createdAt asc)
 
 `;

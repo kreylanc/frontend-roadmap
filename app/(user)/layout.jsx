@@ -16,14 +16,14 @@ export const metadata = {
   },
   description: "A roadmap for frontend web development",
   icons: {
-    icon: "/public/next.svg",
+    icon: "../../public/vercel.svg",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={raleway.variable}>
-      <body className="bg-purple font-sans">
+      <body className="bg-purple font-sans text-zinc-900 dark:text-zinc-200">
         <Header />
         {children}
       </body>
