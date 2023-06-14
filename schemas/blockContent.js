@@ -52,9 +52,7 @@ export default {
                 to: [{ type: "post" }],
               },
             ],
-            blockEditor: {
-              icon: () => <div>🔗</div>,
-            },
+            icon: () => <div>🔗</div>,
           },
           {
             title: "URL",
