@@ -1,5 +1,9 @@
 function loading() {
-  return <div>loading</div>;
+  return (
+    <div role="status">
+      <p className="text-center text-lg animate-pulse">Loading...</p>
+    </div>
+  );
 }
 
 export default loading;

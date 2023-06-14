@@ -1,10 +1,11 @@
 import "../globals.css";
 import { Raleway } from "next/font/google";
 import Header from "../../components/Header";
+import { Analytics } from "@vercel/analytics/react";
 
 const raleway = Raleway({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-raleway",
   display: "swap",
 });
@@ -23,9 +24,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={raleway.variable}>
-      <body className="bg-purple font-sans text-zinc-900 dark:text-zinc-200">
+      <body className="bg-darkPurple font-sans text-neutral-300">
+        <div className="text-center bg-red-700 text-neutral-50">
+          Website in development
+        </div>
         <Header />
         {children}
+        <Analytics />
       </body>
     </html>
   );

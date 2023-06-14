@@ -11,7 +11,7 @@ function Header() {
   // get the current path name
   const path = usePathname();
   return (
-    <header className="relative flex justify-between items-center h-20 bg-zinc-800 px-4">
+    <header className="relative flex 2xl:max-w-7xl mx-auto justify-between items-center h-20 px-4 lg:px-8">
       <Link href="/" className="text-3xl">
         {/* TODO: Add logo image */}
         🤡
@@ -37,8 +37,8 @@ function Header() {
       >
         <ul
           className={`${
-            open ? "bg-purple h-48 justify-around items-center gap-10" : ""
-          } flex flex-col md:flex-row`}
+            open ? "justify-around items-center gap-10" : ""
+          } relative bg-zinc-900 h-48 md:bg-transparent md:h-auto z-10  flex flex-col md:flex-row`}
         >
           <NavLink link="/" title="Home" />
           <NavLink link="/about" title="About" />
