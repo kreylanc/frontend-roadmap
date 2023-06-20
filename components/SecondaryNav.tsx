@@ -25,11 +25,11 @@ interface Nav {
 }
 function SecondaryNav({ slug, navList }: Slug & Props) {
   return (
-    <nav aria-label="secondary" className="">
+    <nav aria-label="secondary">
       {navList.map((item) => (
         <section key={item._id} className="mb-4">
           <h2 className="font-bold">{item.title}</h2>
-          <ul className="flex flex-col ml-2 mt-2 xl:w-4/5">
+          <ul className="flex flex-col ml-2 mt-2">
             {item.post.map((el) => (
               <li key={el._id}>
                 <Link
