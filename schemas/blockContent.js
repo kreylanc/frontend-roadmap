@@ -93,5 +93,8 @@ export default {
       title: "Code Block",
       type: "code",
     },
+    {
+      type: "codepen",
+    },
   ],
 };
