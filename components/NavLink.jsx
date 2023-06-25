@@ -1,12 +1,17 @@
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-function NavLink({ link, title }) {
+function NavLink({ link, title, setOpen, variants }) {
   return (
-    <li className="mx-2">
-      <Link href={link} className="p-4 text-xl font-bold">
+    <motion.li variants={variants} className="mx-2 ">
+      <Link
+        href={link}
+        className="px-4 py-8 md:py-4 block text-xl font-semibold text-center "
+        onClick={() => setOpen(!open)}
+      >
         {title}
       </Link>
-    </li>
+    </motion.li>
   );
 }
 
