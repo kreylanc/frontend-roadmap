@@ -8,14 +8,17 @@ type Props = {
 //
 function BlogList({ posts }: Props) {
   return (
-    <ol className=" w-full lg:w-9/12 mx-auto mt-8" id="content">
+    <ol className="2xl:max-w-7xl mx-auto w-full px-4 md:px-8 mt-8 lg:mt-0">
       {/* Home page all posts display */}
       {posts.map((el, i) => (
-        <li className="p-4 md:p-8 list-decimal" key={el._id}>
-          <h2 data-before={i + 1} className={`text-4xl  font-bold  `}>
+        <li className=" py-8 list-decimal" key={el._id}>
+          <h2
+            data-before={i + 1}
+            className={`text-4xl text-neutral-50 font-bold  `}
+          >
             {el.title}
           </h2>
-          <section className="group grid grid-cols-fluid gap-y-6 gap-x-12 mt-8">
+          <section className="grid grid-cols-fluid md:grid-cols-3 gap-y-6 gap-x-6 lg:gap-x-12 mt-8">
             {el.post.map((item) => (
               <ClientSideRoute
                 key={item._id}
