@@ -60,11 +60,11 @@ async function page({ params: { slug } }: Props) {
   const post: Post = await client.fetch(query, { slug });
 
   return (
-    <main className="relative grid grid-cols-1 lg:grid-cols-[15em_1fr] xl:grid-cols-[1fr_3fr] gap-8 w-full 2xl:max-w-7xl mx-auto my-8 px-4 lg:px-8">
-      <aside className="hidden lg:block self-start sticky top-8 border-r-[1px] px-4 xl:w-4/5 ">
+    <main className="relative grid grid-cols-1 lg:grid-cols-[15em_1fr] xl:grid-cols-[1fr_3fr] gap-8 w-full 2xl:max-w-7xl mx-auto lg:my-8 lg:px-8">
+      <aside className="lg:block self-start sticky top-0 lg:top-8 border-neutral-500 lg:border-r-[1px] xl:w-4/5 ">
         <SecondaryNav navList={list} slug={slug} />
       </aside>
-      <div className="lg:px-4 w-full lg:w-4/5  ">
+      <div className="px-4 w-full md:w-4/5 mx-auto lg:mx-0  ">
         <p className="text-primaryYellow text-sm pb-2 font-semibold tracking-wide">
           {post.category.title}
         </p>

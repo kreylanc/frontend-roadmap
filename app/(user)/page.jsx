@@ -40,15 +40,15 @@ export default async function Home() {
   const posts = await client.fetch(query);
 
   return (
-    <main className="flex flex-col min-h-screen ">
-      <div className="bg-primaryYellow text-neutral-800 px-4 h-[calc(100vh-theme(height.20))] flex flex-col justify-center">
+    <main className="flex flex-col min-h-screen">
+      <div className="bg-yellow-500 text-neutral-900 px-4 h-[calc(100vh-theme(height.20))] flex flex-col justify-center snap-start">
         <h1 className="text-5xl font-bold">Front End Roadmap</h1>
         <p className="mt-4">
           A starter guide on techs to learn for web development.
         </p>
         <Link
           href="#content"
-          className="bg-lavender text-zinc-200 p-3 mt-6 text-center md:self-start md:px-12"
+          className="uppercase bg-lavender tracking-wider  text-neutral-100 p-3 mt-6 text-center rounded-sm md:self-start md:px-12 transition-transform"
         >
           Begin
         </Link>
