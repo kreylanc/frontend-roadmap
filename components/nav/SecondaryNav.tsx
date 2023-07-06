@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useBetterMediaQuery } from "../hooks/useMediaQuery";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -28,7 +28,7 @@ interface Nav {
   ];
 }
 function SecondaryNav({ slug, navList }: Slug & Props) {
-  const largeScreen = useBetterMediaQuery("(min-width: 1024px)");
+  const largeScreen = useMediaQuery("(min-width: 1024px)");
   const [open, setOpen] = useState(false);
 
   return (
