@@ -6,8 +6,8 @@ function NavLink({ link, title, setOpen, variants }) {
     <motion.li variants={variants} className="mx-2 ">
       <Link
         href={link}
-        className="px-4 py-8 md:py-4 block text-xl font-semibold text-center "
-        onClick={() => setOpen(!open)}
+        className="px-4 py-8 md:py-4 block text-xl font-semibold text-center"
+        onClick={setOpen !== null && setOpen}
       >
         {title}
       </Link>

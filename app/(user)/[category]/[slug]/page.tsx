@@ -1,8 +1,8 @@
 import { groq } from "next-sanity";
 import { client } from "../../../../lib/sanity.client";
 import { PortableText } from "@portabletext/react";
-import { RichTextComponents } from "../../../../components/RichTextComponents";
-import SecondaryNav from "../../../../components/SecondaryNav";
+import { RichTextComponents } from "@/components/RichTextComponents";
+import SecondaryNav from "@/components/nav/SecondaryNav";
 
 type Props = {
   params: {
@@ -60,15 +60,17 @@ async function page({ params: { slug } }: Props) {
   const post: Post = await client.fetch(query, { slug });
 
   return (
-    <main className="relative grid grid-cols-1 lg:grid-cols-[15em_1fr] xl:grid-cols-[1fr_3fr] gap-8 w-full 2xl:max-w-7xl mx-auto lg:my-8 lg:px-8">
+    <main className="text-lg relative grid grid-cols-1 lg:grid-cols-[15em_1fr] xl:grid-cols-[1fr_3fr] gap-8 w-full 2xl:max-w-7xl mx-auto lg:my-8 lg:px-8">
       <aside className="lg:block self-start sticky top-0 lg:top-8 border-neutral-500 lg:border-r-[1px] xl:w-4/5 ">
         <SecondaryNav navList={list} slug={slug} />
       </aside>
-      <div className="px-4 w-full md:w-4/5 mx-auto lg:mx-0  ">
-        <p className="text-primaryYellow text-sm pb-2 font-semibold tracking-wide">
+      <div className="px-4 lg:px-0 w-full md:w-3/4  mx-auto lg:mx-0  ">
+        <p className="text-lavender dark:text-primaryYellow text-sm pb-2 font-semibold tracking-wide">
           {post.category.title}
         </p>
-        <h1 className="text-5xl text-neutral-50 font-bold">{post.title}</h1>
+        <h1 className="text-5xl  text-neutral-900 dark:text-neutral-50 font-bold">
+          {post.title}
+        </h1>
         <PortableText value={post.body} components={RichTextComponents} />
       </div>
     </main>
