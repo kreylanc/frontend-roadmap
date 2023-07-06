@@ -4,13 +4,23 @@ import Link from "next/link";
 import NavLink from "./NavLink";
 import { useState } from "react";
 import Image from "next/image";
-import { useBetterMediaQuery } from "./hooks/useMediaQuery";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 import { motion, AnimatePresence } from "framer-motion";
+import Dropdown from "../dropdown/Dropdown";
+import { useDarkMode } from "../hooks/useDarkMode";
+import { TbSun, TbMoon, TbSunMoon } from "react-icons/tb";
+import { useClickOutside } from "../hooks/useClickOutside";
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const [themeToggle, setThemeToggle] = useState(false);
   // returns true if 768px or higher
-  const matches = useBetterMediaQuery("(min-width: 768px)");
+  const matches = useMediaQuery("(min-width: 768px)");
+  const { isDarkMode, isSystem, systemMode, enable, disable } = useDarkMode();
+
+  const menuRef = useClickOutside(() => {
+    setThemeToggle(false);
+  });
 
   // motion variant for parent
   const list = {
@@ -49,7 +59,9 @@ function Header() {
     },
   };
   return (
-    <header className="relative flex 2xl:max-w-7xl mx-auto justify-between items-center h-20 px-4 lg:px-8">
+    <header
+      className={`relative flex 2xl:max-w-7xl mx-auto justify-between items-center h-20 px-4 lg:px-8`}
+    >
       <Link href="/" className="text-3xl">
         {/* TODO: Add logo image */}
         Logo
@@ -60,7 +72,6 @@ function Header() {
           height={50}
         ></Image> */}
       </Link>
-
       {/* using button for better accessibility menu bar */}
       <button
         aria-label="navigation menu"
@@ -77,11 +88,11 @@ function Header() {
           initial={false}
           animate={open ? "open" : "close"}
           aria-hidden="true"
+          className="stroke-neutral-800 dark:stroke-neutral-50"
         >
           <motion.path
             variants={iconVariant}
             d="M94 8H11.88C10.6358 8 10.0137 8 9.72918 8.25394C9.50328 8.45556 9.3809 8.74867 9.39636 9.05106C9.41583 9.43192 9.85323 9.87429 10.728 10.759L93.0337 94"
-            stroke="#F1F1F1"
             strokeWidth="6"
             strokeLinecap="round"
           />
@@ -99,28 +110,49 @@ function Header() {
               },
             }}
             transition={{ duration: 0.4 }}
-            stroke="#F1F1F1"
             strokeWidth="6"
             strokeLinecap="round"
           />
           <motion.path
             variants={iconVariant}
             d="M94 93H11.88C10.6358 93 10.0137 93 9.72918 92.7461C9.50328 92.5444 9.3809 92.2513 9.39636 91.9489C9.41583 91.5681 9.85323 91.1257 10.728 90.241L93.0337 7"
-            stroke="#F1F1F1"
             strokeWidth="6"
             strokeLinecap="round"
           />
         </motion.svg>
       </button>
 
+      {/* Display if screen width is 768px or more */}
       {matches && (
-        <motion.nav aria-label="primary">
-          <ul className="flex gap-4">
-            <NavLink link="/" title="Home" />
-            <NavLink link="/about" title="About" />
-          </ul>
-        </motion.nav>
+        <div className="flex justify-between gap-4 ">
+          <motion.nav className="" aria-label="primary">
+            <ul className="flex gap-4">
+              <NavLink link="/" title="Home" />
+              <NavLink link="/about" title="About" />
+            </ul>
+          </motion.nav>
+          <button
+            className="relative text-xl p-4 mx-2 flex items-center gap-2"
+            onClick={() => setThemeToggle(!themeToggle)}
+            ref={menuRef}
+            aria-expanded={themeToggle}
+          >
+            {isDarkMode ? <TbMoon size="1.2em" /> : <TbSun size="1.2em" />}
+            Theme
+            {themeToggle && (
+              <Dropdown
+                isDarkMode={isDarkMode}
+                isSystem={isSystem}
+                systemMode={systemMode}
+                enable={enable}
+                disable={disable}
+              />
+            )}
+          </button>
+        </div>
       )}
+
+      {/* Mobile navigation menu. Displayed only when toggled */}
       <AnimatePresence>
         {open && !matches && (
           <motion.nav
@@ -130,27 +162,45 @@ function Header() {
             exit={{ opacity: 0, x: 100, transition: { delay: 0.3 } }}
             transition={{ type: "spring", bounce: 0.1 }}
             aria-label="primary mobile"
-            className="fixed inset-0 w-full h-screen flex bg-darkPurple z-10 overflow-hidden"
+            className="fixed inset-0 w-full h-screen flex bg-neutral-50 dark:bg-darkPurple z-10 overflow-hidden"
           >
             <motion.ul
               initial="close"
               animate="open"
               exit="close"
               variants={list}
-              className="flex flex-col w-full justify-center items-stretch gap-24"
+              className="flex flex-col w-full justify-center items-stretch gap-10"
             >
               <NavLink
                 variants={item}
-                setOpen={setOpen}
+                setOpen={() => setOpen(!open)}
                 link="/"
                 title="Home"
               />
               <NavLink
                 variants={item}
-                setOpen={setOpen}
+                setOpen={() => setOpen(!open)}
                 link="/about"
                 title="About"
               />
+              <motion.button
+                variants={item}
+                className="relative text-xl  p-4 mx-2 flex justify-center items-center gap-2"
+                onClick={() => setThemeToggle(!themeToggle)}
+                ref={menuRef}
+              >
+                {isDarkMode ? <TbMoon size="1.2em" /> : <TbSun size="1.2em" />}
+                Theme
+                {themeToggle && (
+                  <Dropdown
+                    isDarkMode={isDarkMode}
+                    isSystem={isSystem}
+                    systemMode={systemMode}
+                    enable={enable}
+                    disable={disable}
+                  />
+                )}
+              </motion.button>
             </motion.ul>
           </motion.nav>
         )}

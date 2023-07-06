@@ -6,7 +6,7 @@ type Props = {
 };
 
 //
-function BlogList({ posts }: Props) {
+function TopicList({ posts }: Props) {
   return (
     <ol className="2xl:max-w-7xl mx-auto w-full px-4 md:px-8 mt-8 lg:mt-0">
       {/* Home page all posts display */}
@@ -14,7 +14,7 @@ function BlogList({ posts }: Props) {
         <li className=" py-8 list-decimal" key={el._id}>
           <h2
             data-before={i + 1}
-            className={`text-4xl text-neutral-50 font-bold  `}
+            className={`text-4xl text-neutral-800 dark:text-neutral-50 font-bold  `}
           >
             {el.title}
           </h2>
@@ -38,4 +38,4 @@ function BlogList({ posts }: Props) {
   );
 }
 
-export default BlogList;
+export default TopicList;

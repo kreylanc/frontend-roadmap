@@ -1,9 +1,9 @@
 import { previewData } from "next/headers";
 import { groq } from "next-sanity";
 import { client } from "../../lib/sanity.client";
-import PreviewSuspense from "../../components/PreviewSuspense";
-import PreviewBlogList from "../../components/PreviewBlogList";
-import BlogList from "../../components/BlogList";
+import PreviewSuspense from "@/components/PreviewSuspense";
+import PreviewBlogList from "@/components/PreviewBlogList";
+import TopicList from "@/components/TopicList";
 import Link from "next/link";
 
 // -> means follow the reference and get the content from the reference
@@ -53,7 +53,8 @@ export default async function Home() {
           Begin
         </Link>
       </div>
-      <BlogList posts={posts} />
+
+      <TopicList posts={posts} />
     </main>
   );
 }

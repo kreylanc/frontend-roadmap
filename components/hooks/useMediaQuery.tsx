@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
  * @returns {unknown}
  */
 
-export function useBetterMediaQuery(mediaQueryString: string) {
+export function useMediaQuery(mediaQueryString: string) {
   const [matches, setMatches] = useState<boolean | null>(null);
 
   useEffect(() => {
