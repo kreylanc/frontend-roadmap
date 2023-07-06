@@ -15,7 +15,7 @@ function Card({ title, description, imgUrl }) {
       ) : (
         <div className="h-24 text-rose-500">Cant load image</div>
       )}
-      <h3 className="text-3xl mt-4 break-words font-semibold text-neutral-50">
+      <h3 className="text-3xl mt-4 break-words font-semibold text-neutral-900 dark:text-neutral-50">
         {title}
       </h3>
 

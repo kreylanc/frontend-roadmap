@@ -57,14 +57,14 @@ export const RichTextComponents = {
     ),
   },
   block: {
-    normal: ({ children }: any) => <p className="mt-2">{children}</p>,
+    normal: ({ children }: any) => <p className="mt-2 leading-7">{children}</p>,
     h1: ({ children }: any) => (
-      <h1 className="text-5xl text-neutral-50 mt-6 py-2 font-bold">
+      <h1 className="text-5xl dark:text-neutral-50 text-neutral-900 mt-6 py-2 font-bold">
         {children}
       </h1>
     ),
     h2: ({ children }: any) => (
-      <h2 className="text-4xl text-neutral-50 mt-6 py-2 font-bold">
+      <h2 className="text-4xl dark:text-neutral-50 text-neutral-900 mt-6 py-2 font-bold">
         {children}
       </h2>
     ),
@@ -75,16 +75,16 @@ export const RichTextComponents = {
       <h4 className="text-xl mt-3 font-semibold">{children}</h4>
     ),
     blockquote: ({ children }: any) => (
-      <blockquote className="border-l-orange-500 border-l-4 bg-neutral-700/40 pl-5 py-2 my-4">
+      <aside className="border-l-orange-500 border-l-4 bg-neutral-700/20 dark:bg-neutral-700/40 ml-5 p-4 my-4">
         {children}
-      </blockquote>
+      </aside>
     ),
   },
   marks: {
     internalLink: ({ children, value }: any) => (
       <Link
         href={value.url}
-        className="underline text-white decoration-purple-700 underline-offset-4 hover:decoration-primaryYellow focus:decoration-primaryYellow focus:outline-none transition-colors"
+        className="underline dark:text-neutral-50 text-neutral-900 decoration-purple-600 underline-offset-4 hover:decoration-primaryYellow focus:decoration-primaryYellow focus:outline-none transition-colors"
       >
         {children}
       </Link>
@@ -100,7 +100,7 @@ export const RichTextComponents = {
           <Link
             href={value.href}
             rel={rel}
-            className="inline items-center underline decoration-lavender underline-offset-4 text-white hover:decoration-primaryYellow focus:decoration-primaryYellow focus:outline-none transition-colors"
+            className="inline items-center underline decoration-purple-500 underline-offset-4 dark:text-neutral-50 text-neutral-900 hover:decoration-primaryYellow focus:decoration-primaryYellow focus:outline-none transition-colors"
             target="_blank"
           >
             {children}
@@ -110,7 +110,7 @@ export const RichTextComponents = {
           <Link
             href={value.href}
             rel={rel}
-            className="inline underline text-white decoration-purple-700 hover:decoration-primaryYellow"
+            className="inline underline text-neutral-50 dark:text-neutral-900 decoration-purple-500 hover:decoration-primaryYellow"
           >
             {children}
             <TbExternalLink className="inline" />
@@ -119,7 +119,7 @@ export const RichTextComponents = {
       );
     },
     code: ({ children }: any) => (
-      <code className="bg-neutral-900 text-red-500 px-1 font-sans">
+      <code className="bg-zinc-200 dark:bg-neutral-900 text-red-900 dark:text-red-500 px-1 font-sans">
         {children}
       </code>
     ),
