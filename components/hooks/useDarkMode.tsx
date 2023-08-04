@@ -1,4 +1,3 @@
-// import { useLocalStorage, useUpdateEffect } from 'usehooks-ts'
 "use client";
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "./useMediaQuery";
@@ -9,7 +8,7 @@ const COLOR_SCHEME_QUERY = "(prefers-color-scheme: dark)";
 interface UseDarkModeOutput {
   isDarkMode: boolean;
   isSystem: boolean | null;
-  systemMode: () => void;
+  enableSystem: () => void;
   enable: () => void;
   disable: () => void;
 }
@@ -79,7 +78,7 @@ export function useDarkMode(defaultValue?: boolean): UseDarkModeOutput {
   return {
     isDarkMode,
     isSystem,
-    systemMode: () => setIsSystem(true),
+    enableSystem: () => setIsSystem(true),
     enable,
     disable,
   };

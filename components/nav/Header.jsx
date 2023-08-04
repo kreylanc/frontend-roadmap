@@ -6,21 +6,12 @@ import { useState } from "react";
 import Image from "next/image";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { motion, AnimatePresence } from "framer-motion";
-import Dropdown from "../dropdown/Dropdown";
-import { useDarkMode } from "../hooks/useDarkMode";
-import { TbSun, TbMoon, TbSunMoon } from "react-icons/tb";
-import { useClickOutside } from "../hooks/useClickOutside";
+import ThemeSwitcher from "../ThemeSwitcher";
 
 function Header() {
   const [open, setOpen] = useState(false);
-  const [themeToggle, setThemeToggle] = useState(false);
   // returns true if 768px or higher
   const matches = useMediaQuery("(min-width: 768px)");
-  const { isDarkMode, isSystem, systemMode, enable, disable } = useDarkMode();
-
-  const menuRef = useClickOutside(() => {
-    setThemeToggle(false);
-  });
 
   // motion variant for parent
   const list = {
@@ -46,7 +37,6 @@ function Header() {
     open: { opacity: 1, x: 0 },
     close: { opacity: 0, x: 100 },
   };
-
   // motion variant for svg hamburger icon
   const iconVariant = {
     open: {
@@ -63,14 +53,13 @@ function Header() {
       className={`relative flex 2xl:max-w-7xl mx-auto justify-between items-center h-20 px-4 lg:px-8`}
     >
       <Link href="/" className="text-3xl">
-        {/* TODO: Add logo image */}
-        Logo
-        {/* <Image
+        {/* Logo */}
+        <Image
           src="/logo.png"
           alt="logo of stylized R using brackets and backward slash"
           width={50}
           height={50}
-        ></Image> */}
+        ></Image>
       </Link>
       {/* using button for better accessibility menu bar */}
       <button
@@ -129,26 +118,9 @@ function Header() {
             <ul className="flex gap-4">
               <NavLink link="/" title="Home" />
               <NavLink link="/about" title="About" />
+              <ThemeSwitcher />
             </ul>
           </motion.nav>
-          <button
-            className="relative text-xl p-4 mx-2 flex items-center gap-2"
-            onClick={() => setThemeToggle(!themeToggle)}
-            ref={menuRef}
-            aria-expanded={themeToggle}
-          >
-            {isDarkMode ? <TbMoon size="1.2em" /> : <TbSun size="1.2em" />}
-            Theme
-            {themeToggle && (
-              <Dropdown
-                isDarkMode={isDarkMode}
-                isSystem={isSystem}
-                systemMode={systemMode}
-                enable={enable}
-                disable={disable}
-              />
-            )}
-          </button>
         </div>
       )}
 
@@ -183,24 +155,7 @@ function Header() {
                 link="/about"
                 title="About"
               />
-              <motion.button
-                variants={item}
-                className="relative text-xl  p-4 mx-2 flex justify-center items-center gap-2"
-                onClick={() => setThemeToggle(!themeToggle)}
-                ref={menuRef}
-              >
-                {isDarkMode ? <TbMoon size="1.2em" /> : <TbSun size="1.2em" />}
-                Theme
-                {themeToggle && (
-                  <Dropdown
-                    isDarkMode={isDarkMode}
-                    isSystem={isSystem}
-                    systemMode={systemMode}
-                    enable={enable}
-                    disable={disable}
-                  />
-                )}
-              </motion.button>
+              <ThemeSwitcher variants={item} />
             </motion.ul>
           </motion.nav>
         )}

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 type Handler = () => void;
 
 export function useClickOutside<T extends HTMLElement>(handler: Handler) {
-  const ref = useRef<T>(null);
+  const ref = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     let listener = (event: { target: any }) => {
