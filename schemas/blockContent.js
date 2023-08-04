@@ -38,6 +38,7 @@ export default {
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
           { title: "Code Line", value: "code" },
+          { title: "CodeSandbox Url", value: "sandboxUrl" },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -92,6 +93,23 @@ export default {
       name: "code",
       title: "Code Block",
       type: "code",
+      options: {
+        languageAlternatives: [
+          { title: "HTML", value: "html" },
+          { title: "CSS", value: "css" },
+          { title: "SASS", value: "sass" },
+          { title: "SCSS", value: "scss" },
+          { title: "Less", value: "less" },
+          { title: "Stylus", value: "stylus", mode: "sass" }, // uses sass highlighter
+          { title: "Javascript", value: "javascript" },
+          { title: "Typescript", value: "typescript" },
+          { title: "JSX", value: "jsx" },
+          { title: "TSX", value: "tsx" },
+          { title: "Angular", value: "angular" },
+          { title: "Vue", value: "vue" },
+        ],
+        withFilename: true,
+      },
     },
     {
       type: "codepen",

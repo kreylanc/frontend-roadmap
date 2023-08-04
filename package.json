@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@codemirror/lang-angular": "^0.1.2",
+    "@codemirror/lang-less": "^6.0.1",
+    "@codemirror/lang-vue": "^0.1.2",
     "@portabletext/react": "^2.0.3",
     "@sanity/code-input": "^4.1.1",
     "@sanity/icons": "^2.1.0",
