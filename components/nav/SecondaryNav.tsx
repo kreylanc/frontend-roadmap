@@ -27,15 +27,42 @@ interface Nav {
     }
   ];
 }
+
+const resize = {
+  close: {
+    opacity: 0,
+    height: 0,
+    transition: {
+      height: {
+        duration: 0.4,
+      },
+      opacity: {
+        duration: 0.25,
+      },
+    },
+  },
+  open: {
+    opacity: 1,
+    height: "auto",
+    transition: {
+      height: {
+        duration: 0.4,
+      },
+      opacity: {
+        duration: 0.25,
+        delay: 0.2,
+      },
+    },
+  },
+};
 function SecondaryNav({ slug, navList }: Slug & Props) {
   const largeScreen = useMediaQuery("(min-width: 1024px)");
   const [open, setOpen] = useState(false);
 
   return (
     <motion.nav
-      transition={{ type: "spring", bounce: 0.1 }}
       aria-label="secondary"
-      className="bg-neutral-50/70 dark:bg-darkPurple/50 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-0 border-neutral-500 border-b-[1px] px-4 lg:border-0"
+      className="bg-neutral-50/70 dark:bg-darkPurple/50 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-0 border-neutral-500 border-b-[1px] pr-4 lg:border-0 transition-all"
     >
       <button
         className="lg:hidden w-full py-4 text-left"
@@ -46,9 +73,10 @@ function SecondaryNav({ slug, navList }: Slug & Props) {
       <AnimatePresence>
         {(open || largeScreen) && (
           <motion.ul
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            variants={resize}
+            initial="close"
+            animate="open"
+            exit="close"
             className="bg-neutral-50/70 dark:bg-darkPurple/50"
           >
             {navList.map((item) => (
@@ -62,9 +90,9 @@ function SecondaryNav({ slug, navList }: Slug & Props) {
                         href={el.url}
                         className={`${
                           el.slug === slug
-                            ? "text-lavender dark:text-primaryYellow"
-                            : " text-neutral-600 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-50 focus:text-neutral-50"
-                        } block p-1 hover:bg-gray-300 dark:hover:bg-gray-600/50 focus:bg-gray-600/50 focus:outline-none rounded-sm mt-1 cursor-pointer transition-colors`}
+                            ? "bg-zinc-300/50 dark:bg-zinc-600/50"
+                            : "focus:text-neutral-50 hover:bg-zinc-300/50 dark:hover:bg-zinc-600/50"
+                        } block p-1 text-neutral-600 dark:text-neutral-400 focus:bg-gray-600/50 focus:outline-none rounded-sm mt-1 cursor-pointer transition-colors`}
                       >
                         {el.title}
                       </Link>
