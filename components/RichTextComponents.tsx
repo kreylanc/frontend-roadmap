@@ -19,6 +19,7 @@ export const RichTextComponents = {
         </div>
       );
     },
+    // *** This is for the code block syntax highlighting
     code: ({ value }: any) => {
       const { code, language } = value;
       return (
@@ -36,7 +37,7 @@ export const RichTextComponents = {
       return (
         <iframe
           height="400"
-          style={{ width: "100%" }}
+          style={{ width: "100%", margin: "32px 0" }}
           src={embedUrl}
           loading="lazy"
           allowFullScreen
@@ -57,34 +58,44 @@ export const RichTextComponents = {
     ),
   },
   block: {
+    // *** Headings and paragraph stylings
     normal: ({ children }: any) => <p className="mt-2 leading-7">{children}</p>,
     h1: ({ children }: any) => (
       <h1 className="text-5xl dark:text-neutral-50 text-neutral-900 mt-6 py-2 font-bold">
         {children}
       </h1>
     ),
-    h2: ({ children }: any) => (
-      <h2 className="text-4xl dark:text-neutral-50 text-neutral-900 mt-6 py-2 font-bold">
-        {children}
+    h2: ({ children, node }: any) => (
+      <h2
+        className="group relative inline-block text-3xl dark:text-neutral-50 text-neutral-900 mt-6 py-2 font-bold"
+        id={`h${node._key}`}
+      >
+        <a href={`#h${node._key}`}>
+          <span className="opacity-0 absolute group-hover:opacity-100 -left-6 transition-opacity">
+            #
+          </span>
+          {children}
+        </a>
       </h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className="text-2xl mt-3 py-1 font-semibold">{children}</h3>
+      <h3 className="text-xl mt-3 py-1 font-semibold">{children}</h3>
     ),
     h4: ({ children }: any) => (
-      <h4 className="text-xl mt-3 font-semibold">{children}</h4>
+      <h4 className="text-lg mt-3 font-semibold">{children}</h4>
     ),
     blockquote: ({ children }: any) => (
-      <aside className="border-l-orange-500 border-l-4 bg-neutral-700/20 dark:bg-neutral-700/40 ml-5 p-4 my-4">
+      <aside className="border-l-orange-500 border-l-4 bg-neutral-700/20 dark:bg-neutral-700/40 p-4 my-4">
         {children}
       </aside>
     ),
   },
   marks: {
+    // *** Link and other code format stylings
     internalLink: ({ children, value }: any) => (
       <Link
         href={value.url}
-        className="underline dark:text-neutral-50 text-neutral-900 decoration-purple-600 underline-offset-4 hover:decoration-primaryYellow focus:decoration-primaryYellow focus:outline-none transition-colors"
+        className="underline dark:text-neutral-50 text-neutral-900 decoration-purple-500 decoration-2 underline-offset-4 hover:decoration-primaryYellow focus:decoration-primaryYellow focus:outline-none transition-colors"
       >
         {children}
       </Link>
@@ -100,7 +111,7 @@ export const RichTextComponents = {
           <Link
             href={value.href}
             rel={rel}
-            className="inline items-center underline decoration-purple-500 underline-offset-4 dark:text-neutral-50 text-neutral-900 hover:decoration-primaryYellow focus:decoration-primaryYellow focus:outline-none transition-colors"
+            className="inline items-center underline decoration-purple-600 underline-offset-4  text-purple-800 hover:decoration-primaryYellow focus:decoration-primaryYellow focus:outline-none transition-colors dark:text-purple-400"
             target="_blank"
           >
             {children}
@@ -110,7 +121,7 @@ export const RichTextComponents = {
           <Link
             href={value.href}
             rel={rel}
-            className="inline underline text-neutral-50 dark:text-neutral-900 decoration-purple-500 hover:decoration-primaryYellow"
+            className="inline underline  text-purple-800 decoration-purple-600 hover:decoration-primaryYellow dark:text-purple-400"
           >
             {children}
             <TbExternalLink className="inline" />
@@ -118,10 +129,34 @@ export const RichTextComponents = {
         )
       );
     },
+    // *** This 'code' is for inline code highlight
     code: ({ children }: any) => (
       <code className="bg-zinc-200 dark:bg-neutral-900 text-red-900 dark:text-red-500 px-1 font-sans">
         {children}
       </code>
     ),
+    sandboxUrl: ({ children }: any) => {
+      // Eg of codesandbox embed url: https://codesandbox.io/s/elastic-smoke-rzm3wj
+      const splitUrl = children[0].split("/").pop()!;
+      // !TODO: make the theme dynamic
+
+      const embedUrl = `https://codesandbox.io/embed/${splitUrl}?fontsize=14&hidenavigation=1&theme=dark`;
+      return (
+        <iframe
+          src={embedUrl}
+          style={{
+            width: "100%",
+            height: "500px",
+            border: "0",
+            borderRadius: "4px",
+            overflow: "hidden",
+            margin: "32px 0",
+          }}
+          title={splitUrl}
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        ></iframe>
+      );
+    },
   },
 };

@@ -35,6 +35,7 @@ module.exports = {
       },
       boxShadow: {
         neu: "6px 6px 12px #1a061f;",
+        light: "6px 6px 12px #dcdcdc",
       },
     },
   },
