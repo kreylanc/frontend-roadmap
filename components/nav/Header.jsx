@@ -134,7 +134,7 @@ function Header() {
             exit={{ opacity: 0, x: 100, transition: { delay: 0.3 } }}
             transition={{ type: "spring", bounce: 0.1 }}
             aria-label="primary mobile"
-            className="fixed inset-0 w-full h-screen flex bg-neutral-50 dark:bg-darkPurple z-10 overflow-hidden"
+            className="fixed inset-0 w-full h-screen flex bg-neutral-50 dark:bg-darkPurple z-30 overflow-hidden"
           >
             <motion.ul
               initial="close"
