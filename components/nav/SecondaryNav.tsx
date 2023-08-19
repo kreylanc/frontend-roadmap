@@ -62,7 +62,7 @@ function SecondaryNav({ slug, navList }: Slug & Props) {
   return (
     <motion.nav
       aria-label="secondary"
-      className="bg-neutral-50/70 dark:bg-darkPurple/50 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-0 border-neutral-500 border-b-[1px] pr-4 lg:border-0 transition-all"
+      className="bg-neutral-50/70 pl-4 pr-4 lg:pl-0 dark:bg-darkPurple/70 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-0 border-neutral-500 border-b-[1px] lg:border-0 transition-all"
     >
       <button
         className="lg:hidden w-full py-4 text-left"
@@ -77,7 +77,6 @@ function SecondaryNav({ slug, navList }: Slug & Props) {
             initial="close"
             animate="open"
             exit="close"
-            className="bg-neutral-50/70 dark:bg-darkPurple/50"
           >
             {navList.map((item) => (
               // Render either if the menu is toggled open or its a large screen

@@ -19,7 +19,9 @@ export const RichTextComponents = {
         </div>
       );
     },
-    // *** This is for the code block syntax highlighting
+    /*
+     *------ This is for the code block syntax highlighting
+     */
     code: ({ value }: any) => {
       const { code, language } = value;
       return (
@@ -31,7 +33,7 @@ export const RichTextComponents = {
     codepen: ({ value }: any) => {
       const url = value.url;
       const splitURL = url.split("/");
-      // [ 'https:', '', 'codepen.io', 'sdras', 'pen', 'gWWQgb' ]
+      // Eg of url after splitting [ 'https:', '', 'codepen.io', 'sdras', 'pen', 'gWWQgb' ]
       const [, , , user, , hash] = splitURL;
       const embedUrl = `https://codepen.io/${user}/embed/${hash}?height=370&default-tab=result`;
       return (
@@ -70,8 +72,9 @@ export const RichTextComponents = {
         className="group relative inline-block text-3xl dark:text-neutral-50 text-neutral-900 mt-6 py-2 font-bold"
         id={`h${node._key}`}
       >
+        {/* Adding an achored heading link */}
         <a href={`#h${node._key}`}>
-          <span className="opacity-0 absolute group-hover:opacity-100 -left-6 transition-opacity">
+          <span className="hidden lg:inline opacity-0 absolute group-hover:opacity-100 -left-6 transition-opacity">
             #
           </span>
           {children}
@@ -129,7 +132,10 @@ export const RichTextComponents = {
         )
       );
     },
-    // *** This 'code' is for inline code highlight
+
+    /*
+     *-------  This 'code' style is for inline code highlight
+     */
     code: ({ children }: any) => (
       <code className="bg-zinc-200 dark:bg-neutral-900 text-red-900 dark:text-red-500 px-1 font-sans">
         {children}
@@ -138,7 +144,7 @@ export const RichTextComponents = {
     sandboxUrl: ({ children }: any) => {
       // Eg of codesandbox embed url: https://codesandbox.io/s/elastic-smoke-rzm3wj
       const splitUrl = children[0].split("/").pop()!;
-      // !TODO: make the theme dynamic
+      // TODO: make the theme dynamic
 
       const embedUrl = `https://codesandbox.io/embed/${splitUrl}?fontsize=14&hidenavigation=1&theme=dark`;
       return (

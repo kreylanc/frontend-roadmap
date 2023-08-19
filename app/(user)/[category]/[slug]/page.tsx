@@ -60,15 +60,15 @@ async function page({ params: { slug } }: Props) {
   const post: Post = await client.fetch(query, { slug });
 
   return (
-    <main className="text-lg relative grid grid-cols-1 lg:grid-cols-[15em_1fr] xl:grid-cols-[1fr_3fr] gap-8 w-full 2xl:max-w-7xl mx-auto lg:my-8 lg:px-8">
-      <aside className="lg:block self-start sticky top-0 lg:top-8 border-neutral-500 lg:border-r-[1px] xl:w-4/5 ">
+    <main className="text-lg relative grid grid-cols-1 lg:grid-cols-[15em_1fr] xl:grid-cols-[1fr_3fr] gap-8 2xl:max-w-7xl mx-auto lg:my-8 lg:px-8">
+      <aside className="lg:block self-start sticky top-0 lg:top-8 border-neutral-500 lg:border-r-[1px] z-10">
         <SecondaryNav navList={list} slug={slug} />
       </aside>
-      <div className="px-4 lg:px-0 w-full md:w-3/4  mx-auto lg:mx-0  ">
-        <p className="text-lavender dark:text-primaryYellow text-sm pb-2 font-semibold tracking-wide">
+      <div className="px-4 w-full md:w-3/4 mx-auto lg:mx-0">
+        <p className="bg-primaryYellow text-neutral-900  inline rounded-md text-sm px-2 py-1 font-semibold tracking-wide">
           {post.category.title}
         </p>
-        <h1 className="text-5xl  text-neutral-900 dark:text-neutral-50 font-bold">
+        <h1 className="text-4xl md:text-5xl mt-2 text-neutral-900 dark:text-neutral-50 font-bold">
           {post.title}
         </h1>
         <PortableText value={post.body} components={RichTextComponents} />
