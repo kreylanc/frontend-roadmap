@@ -60,7 +60,7 @@ async function page({ params: { slug } }: Props) {
   const post: Post = await client.fetch(query, { slug });
 
   return (
-    <main className="text-lg relative grid grid-cols-1 lg:grid-cols-[15em_1fr] xl:grid-cols-[1fr_3fr] gap-8 2xl:max-w-7xl mx-auto lg:my-8 lg:px-8">
+    <main className="text-lg relative grid grid-cols-1 lg:grid-cols-[12em_1fr] xl:grid-cols-[1fr_4fr] gap-8 2xl:max-w-7xl mx-auto lg:my-8 lg:px-8">
       <aside className="lg:block self-start sticky top-0 lg:top-8 border-neutral-500 lg:border-r-[1px] z-10">
         <SecondaryNav navList={list} slug={slug} />
       </aside>
