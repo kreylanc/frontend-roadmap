@@ -1,4 +1,4 @@
-import { previewData } from "next/headers";
+import { draftMode } from "next/headers";
 import { groq } from "next-sanity";
 import { client } from "../../lib/sanity.client";
 import PreviewSuspense from "@/components/PreviewSuspense";
@@ -18,7 +18,8 @@ const query = groq`
 `;
 
 export default async function Home() {
-  if (previewData()) {
+  const { isEnabled } = draftMode();
+  if (isEnabled) {
     return (
       <main>
         <PreviewSuspense
