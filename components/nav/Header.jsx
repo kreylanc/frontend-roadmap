@@ -40,11 +40,13 @@ function Header() {
   // motion variant for svg hamburger icon
   const iconVariant = {
     open: {
-      strokeDasharray: "0, 85, 40",
+      // strokeDashoffset: "75",
+      strokeDasharray: "0, 77, 110, 77, 111",
       transition: { duration: 0.3, delay: 0.15 },
     },
     close: {
-      strokeDasharray: "85, 120, 0",
+      // strokeDashoffset: "0",
+      strokeDasharray: "75, 113, 75, 113, 0",
       transition: { duration: 0.3 },
     },
   };
@@ -65,7 +67,9 @@ function Header() {
       <button
         aria-label="navigation menu"
         aria-expanded={open}
-        className="md:hidden z-50 cursor-pointer p-1"
+        className={` ${
+          open ? "fixed right-4" : "static"
+        } md:hidden z-50 cursor-pointer p-1`}
         onClick={() => setOpen(!open)}
       >
         <span className="sr-only">Menu</span>
@@ -80,13 +84,7 @@ function Header() {
           className="stroke-neutral-800 dark:stroke-neutral-50"
         >
           <motion.path
-            variants={iconVariant}
-            d="M94 8H11.88C10.6358 8 10.0137 8 9.72918 8.25394C9.50328 8.45556 9.3809 8.74867 9.39636 9.05106C9.41583 9.43192 9.85323 9.87429 10.728 10.759L93.0337 94"
-            strokeWidth="6"
-            strokeLinecap="round"
-          />
-          <motion.path
-            d="M94 50L7 50"
+            d="M87 50L13 50"
             variants={{
               close: {
                 opacity: 1,
@@ -104,7 +102,7 @@ function Header() {
           />
           <motion.path
             variants={iconVariant}
-            d="M94 93H11.88C10.6358 93 10.0137 93 9.72918 92.7461C9.50328 92.5444 9.3809 92.2513 9.39636 91.9489C9.41583 91.5681 9.85323 91.1257 10.728 90.241L93.0337 7"
+            d="M87.0643 89.5H11.4357C10.5418 89.5 10.097 88.4166 10.733 87.7885L87.767 11.7115C88.403 11.0834 87.9582 10 87.0643 10H11.4357C10.5418 10 10.097 11.0834 10.733 11.7115L87.767 87.7885C88.403 88.4166 87.9582 89.5 87.0643 89.5Z"
             strokeWidth="6"
             strokeLinecap="round"
           />

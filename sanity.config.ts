@@ -21,20 +21,9 @@ export default defineConfig({
     codeInput({
       codeModes: [
         {
-          name: "angular",
-          // dynamic import the angular package, and initialize the plugin after it is loaded
-          // This way, the language is only when it is selected
-          loader: () =>
-            import("@codemirror/lang-angular").then(({ angular }) => angular()),
-        },
-        {
           name: "less",
           loader: () =>
             import("@codemirror/lang-less").then(({ less }) => less()),
-        },
-        {
-          name: "vue",
-          loader: () => import("@codemirror/lang-vue").then(({ vue }) => vue()),
         },
       ],
     }),
