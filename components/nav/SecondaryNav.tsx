@@ -62,7 +62,7 @@ function SecondaryNav({ slug, navList }: Slug & Props) {
   return (
     <motion.nav
       aria-label="secondary"
-      className="bg-neutral-50/70 pl-4 pr-4 lg:pl-0 dark:bg-darkPurple/70 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-0 border-neutral-500 border-b-[1px] lg:border-0 transition-all"
+      className="bg-neutral-50/70 text-sm pl-4 pr-4 lg:pl-0 dark:bg-darkPurple/70 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-0 border-neutral-500 border-b-[1px] lg:border-0 transition-all"
     >
       <button
         className="lg:hidden w-full py-4 text-left"
