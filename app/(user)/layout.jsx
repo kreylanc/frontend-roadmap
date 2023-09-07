@@ -12,13 +12,31 @@ const raleway = Raleway({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://www.frontendroadmap.com/"),
   title: {
     default: "Frontend Roadmap",
     template: "%s | Frontend Roadmap",
   },
-  description: "A roadmap for frontend web development",
+  description:
+    "A roadmap for beginner front-end web developers to help them choose the right technologies.",
   icons: {
     icon: "/logo.png",
+  },
+  alternates: {
+    canonical: "https://www.frontendroadmap.com",
+  },
+  openGraph: {
+    title: "Frontend Roadmap",
+    description:
+      "A roadmap for beginner front-end web developers to help them choose the right technologies.",
+    url: "https://frontendroadmap.com",
+    siteName: "Frontend Roadmap",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Frontend Roadmap",
+    description:
+      "A roadmap for beginner front-end web developers to help them choose the right technologies.",
   },
 };
 
@@ -35,9 +53,6 @@ export default function RootLayout({ children }) {
             }
           `}
         </Script>
-        <div className="text-center  text-red-400 w-full">
-          Website in development! Not an indicative of final product.
-        </div>
         <Header />
         {children}
         <Footer />

@@ -12,6 +12,10 @@ export const metadata = {
   icons: {
     icon: "https://www.sanity.io/static/images/favicons/favicon-32x32.png",
   },
+  robots: {
+    index: false,
+    nocache: true,
+  },
 };
 
 export default function RootLayout({ children }) {
