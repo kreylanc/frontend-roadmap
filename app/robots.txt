@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /studio/
+
+Sitemap: https://frontendroadmap.com/sitemap.xml
