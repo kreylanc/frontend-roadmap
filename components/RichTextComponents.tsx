@@ -69,7 +69,7 @@ export const RichTextComponents = {
     ),
     h2: ({ children, node }: any) => (
       <h2
-        className="group relative inline-block text-3xl dark:text-neutral-50 text-neutral-900 mt-6 py-2 font-bold"
+        className="group relative inline-block text-3xl dark:text-neutral-50 text-neutral-900 mt-2 pt-8 pb-2 font-bold"
         id={`h${node._key}`}
       >
         {/* Adding an achored heading link */}

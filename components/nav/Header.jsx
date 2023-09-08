@@ -116,7 +116,9 @@ function Header() {
             <ul className="flex gap-4">
               <NavLink link="/" title="Home" />
               <NavLink link="/about" title="About" />
-              <ThemeSwitcher />
+              <li>
+                <ThemeSwitcher />
+              </li>
             </ul>
           </motion.nav>
         </div>
@@ -139,7 +141,7 @@ function Header() {
               animate="open"
               exit="close"
               variants={list}
-              className="flex flex-col w-full justify-center items-stretch gap-10"
+              className="flex flex-col w-full justify-center items-center gap-10"
             >
               <NavLink
                 variants={item}
@@ -153,7 +155,9 @@ function Header() {
                 link="/about"
                 title="About"
               />
-              <ThemeSwitcher variants={item} />
+              <li className="mx-2">
+                <ThemeSwitcher variants={item} />
+              </li>
             </motion.ul>
           </motion.nav>
         )}
