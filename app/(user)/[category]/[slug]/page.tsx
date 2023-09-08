@@ -1,8 +1,9 @@
 import { groq } from "next-sanity";
-import { client } from "../../../../lib/sanity.client";
+import { client } from "lib/sanity.client";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "@/components/RichTextComponents";
 import SecondaryNav from "@/components/nav/SecondaryNav";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: {
@@ -14,12 +15,39 @@ export async function generateMetadata({ params }: Props) {
   const id = params.slug;
   const metaQuery = groq`
   *[_type=='post' && slug.current == $id][0] {
-    title, description
+    title, description, category->, "slug": slug.current
   }
   `;
-  const data: Post = await client.fetch(metaQuery, { id });
-
-  return { title: data.title, description: data.description };
+  try {
+    // fetching data with id as a parameter; the value of $id in the query is replaced by { id }
+    const metaData: Post = await client.fetch(metaQuery, { id });
+    if (!metaData) {
+      return {
+        title: "Page not found",
+        description: "The page you are looking for does not exist.",
+      };
+    }
+    return {
+      title: metaData.title + " - " + metaData.category.title,
+      description: metaData.description,
+      alternates: {
+        canonical: `${metaData.category.slug.current}/${metaData.slug}`,
+      },
+      openGraph: {
+        title: metaData.title,
+        description: metaData.description,
+      },
+      twitter: {
+        title: metaData.title,
+        description: metaData.description,
+      },
+    };
+  } catch (error) {
+    return {
+      title: " Page not found",
+      description: "The page you are looking for does not exist.",
+    };
+  }
 }
 
 async function page({ params: { slug } }: Props) {
@@ -37,6 +65,12 @@ async function page({ params: { slug } }: Props) {
     }
   }
   `;
+  const post: Post = await client.fetch(query, { slug });
+  // Check if the fetch returned any value
+  // If null then call notFound error to display 404 page
+  if (!post) {
+    notFound();
+  }
 
   // query to get list of all post categorized in each of their category
   const listQuery = groq`
@@ -56,8 +90,6 @@ async function page({ params: { slug } }: Props) {
   } | order(_createdAt asc)
 `;
   const list = await client.fetch(listQuery);
-
-  const post: Post = await client.fetch(query, { slug });
 
   return (
     <main className="text-lg relative grid grid-cols-1 lg:grid-cols-[12em_1fr] xl:grid-cols-[1fr_4fr] gap-8 2xl:max-w-7xl mx-auto lg:my-8 lg:px-8">
