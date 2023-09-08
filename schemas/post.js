@@ -2,6 +2,12 @@ export default {
   name: "post",
   title: "Post",
   type: "document",
+  groups: [
+    {
+      name: "seo",
+      title: "SEO",
+    },
+  ],
   fields: [
     {
       name: "title",
@@ -53,6 +59,14 @@ export default {
       name: "body",
       title: "Body",
       type: "blockContent",
+    },
+    { name: "seoTitle", title: "SEO title", type: "string", group: "seo" },
+    {
+      name: "seoDescription",
+      title: "Description for SEO and social sharing",
+      description: "Ideally 70 to 160 characters.",
+      type: "string",
+      group: "seo",
     },
   ],
 

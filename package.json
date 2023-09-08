@@ -9,9 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@codemirror/lang-angular": "^0.1.2",
     "@codemirror/lang-less": "^6.0.1",
-    "@codemirror/lang-vue": "^0.1.2",
     "@portabletext/react": "^2.0.3",
     "@sanity/code-input": "^4.1.1",
     "@sanity/icons": "^2.1.0",
@@ -19,6 +17,7 @@
     "@sanity/ui": "^1.2.0",
     "@sanity/vision": "^3.0.0",
     "@vercel/analytics": "^1.0.1",
+    "cookies-next": "^3.0.0",
     "framer-motion": "^10.12.16",
     "next": "^13.4.13",
     "next-sanity": "^4.1.7",
@@ -28,7 +27,7 @@
     "react-icons": "^4.8.0",
     "react-portable-text": "^0.6.0",
     "react-refractor": "^2.1.7",
-    "sanity": "^3.0.0",
+    "sanity": "^3.16.4",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
