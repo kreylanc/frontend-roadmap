@@ -4,6 +4,7 @@ import Header from "../../components/nav/Header";
 import Footer from "../../components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
+import ConsentBanner from "@/components/cookie-consent/ConsentBanner";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -43,7 +44,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${raleway.variable} font-sans 2xl:text-lg`}>
-      <body className="bg-neutral-100 text-neutral-700 dark:bg-darkPurple dark:text-neutral-300 overflow-x-hidden">
+      <body className="relative bg-neutral-100 text-neutral-700 dark:bg-darkPurple dark:text-neutral-300 overflow-x-hidden">
         <Script id="theme-switcher" strategy="beforeInteractive">
           {`
             if (localStorage.darkMode === 'true' || (localStorage.darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -53,6 +54,7 @@ export default function RootLayout({ children }) {
             }
           `}
         </Script>
+        <ConsentBanner />
         <Header />
         {children}
         <Footer />
