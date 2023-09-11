@@ -5,6 +5,7 @@ import PreviewSuspense from "@/components/PreviewSuspense";
 import PreviewBlogList from "@/components/PreviewBlogList";
 import TopicList from "@/components/TopicList";
 import Link from "next/link";
+import HeroSVG from "@/components/HeroSVG";
 
 // -> means follow the reference and get the content from the reference
 // []-> follow the refernce and put all the content in an array
@@ -42,17 +43,20 @@ export default async function Home() {
 
   return (
     <main className="flex flex-col min-h-screen mx-auto w-full 2xl:max-w-7xl px-4 md:px-8">
-      <div className=" h-[calc(100vh-theme(height.20))] flex flex-col justify-center snap-start">
-        <h1 className="text-5xl font-bold">Front End Roadmap</h1>
-        <p className="mt-4">
-          A starter guide on techs to learn for web development.
-        </p>
-        <Link
-          href="#content"
-          className="uppercase bg-primaryYellow text-darkPurple tracking-wider p-3 mt-6 text-center rounded-md md:self-start md:px-12 transition-transform"
-        >
-          Begin
-        </Link>
+      <div className=" h-[calc(100vh-theme(height.20))] flex flex-col md:flex-row justify-center items-center">
+        <HeroSVG />
+        <div className="flex flex-col justify-center md:order-first">
+          <h1 className="text-5xl font-bold mt-4">Front End Roadmap</h1>
+          <p className="mt-4">
+            A starter guide on techs to learn for web development.
+          </p>
+          <Link
+            href="#content"
+            className="uppercase bg-primaryYellow text-darkPurple tracking-wider p-3 mt-6 text-center rounded-md md:self-start md:px-12 transition-transform"
+          >
+            Begin
+          </Link>
+        </div>
       </div>
 
       <TopicList posts={posts} />
