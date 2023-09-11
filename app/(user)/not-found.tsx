@@ -1,0 +1,11 @@
+import Link from "next/link";
+
+export default function NotFound() {
+  return (
+    <div>
+      <h2>Erorr 404: Page Not Found</h2>
+      <p>It seems that you are out of track</p>
+      <Link href="/">Return Home</Link>
+    </div>
+  );
+}
