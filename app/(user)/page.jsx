@@ -51,7 +51,7 @@ export default async function Home() {
             A starter guide on techs to learn for web development.
           </p>
           <Link
-            href="#content"
+            href="/#content"
             className="uppercase bg-primaryYellow text-darkPurple tracking-wider p-3 mt-6 text-center rounded-md md:self-start md:px-12 transition-transform"
           >
             Begin

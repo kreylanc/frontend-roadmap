@@ -8,10 +8,13 @@ type Props = {
 //
 function TopicList({ posts }: Props) {
   return (
-    <ol className="2xl:max-w-7xl mx-auto w-full px-4 md:px-8 mt-8 lg:mt-0">
+    <ul
+      id="content"
+      className="2xl:max-w-7xl mx-auto w-full px-4 md:px-8 mt-8 lg:mt-0"
+    >
       {/* Home page all posts display */}
       {posts.map((el, i) => (
-        <li className=" py-8 list-decimal" key={el._id}>
+        <li className=" py-8" key={el._id}>
           <h2
             data-before={i + 1}
             className={`text-4xl text-neutral-800 dark:text-neutral-50 font-bold  `}
@@ -34,7 +37,7 @@ function TopicList({ posts }: Props) {
           </section>
         </li>
       ))}
-    </ol>
+    </ul>
   );
 }
 
