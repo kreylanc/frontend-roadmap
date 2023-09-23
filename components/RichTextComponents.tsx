@@ -1,9 +1,30 @@
 import Image from "next/image";
 import urlFor from "../lib/urlFor";
 import Link from "next/link";
-import Refractor from "react-refractor/all";
+import Refractor from "react-refractor";
+import js from "refractor/lang/javascript";
+import html from "refractor/lang/markup";
+import css from "refractor/lang/css";
+import sass from "refractor/lang/sass";
+import scss from "refractor/lang/scss";
+import less from "refractor/lang/less";
+import stylus from "refractor/lang/stylus";
+import jsx from "refractor/lang/jsx";
+import ts from "refractor/lang/typescript";
+import tsx from "refractor/lang/tsx";
 import "prismjs/themes/prism-tomorrow.css";
 import { TbExternalLink } from "react-icons/tb";
+
+Refractor.registerLanguage(js);
+Refractor.registerLanguage(html);
+Refractor.registerLanguage(css);
+Refractor.registerLanguage(sass);
+Refractor.registerLanguage(scss);
+Refractor.registerLanguage(less);
+Refractor.registerLanguage(stylus);
+Refractor.registerLanguage(jsx);
+Refractor.registerLanguage(ts);
+Refractor.registerLanguage(tsx);
 
 export const RichTextComponents = {
   types: {
