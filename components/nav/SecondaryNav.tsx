@@ -67,6 +67,7 @@ function SecondaryNav({ slug, navList }: Slug & Props) {
       <button
         className="lg:hidden w-full py-4 text-left"
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
       >
         Menu
       </button>
