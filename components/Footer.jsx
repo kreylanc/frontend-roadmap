@@ -2,10 +2,38 @@ import Link from "next/link";
 import Image from "next/image";
 
 function Footer() {
+  const learn = [
+    {
+      title: "Fundamentals",
+      href: "/fundamentals",
+    },
+    {
+      title: "UI Library",
+      href: "/ui-library",
+    },
+    {
+      title: "JavaScript Framework",
+      href: "/js-framework",
+    },
+  ];
+  const links = [
+    {
+      title: "About",
+      href: "/about",
+    },
+    {
+      title: "Privacy Policy",
+      href: "/privacy-policy",
+    },
+    {
+      title: "Sitemap",
+      href: "/sitemap",
+    },
+  ];
   return (
-    <footer className=" bg-primaryYellow text-darkPurple mt-20 ">
-      <div className="flex flex-col lg:flex-row gap-y-6 justify-between mx-auto w-full 2xl:max-w-7xl px-4 md:px-8 py-6">
-        <div>
+    <footer className="bg-primaryYellow text-darkPurple mt-20 pb-10">
+      <div className="flex flex-col md:flex-row gap-y-6 justify-between mx-auto w-full 2xl:max-w-7xl px-4 md:px-8 py-6">
+        <div className="md:w-1/3">
           <Link href="/" className="inline-flex gap-3 items-center">
             <Image
               src="/logo.svg"
@@ -19,20 +47,25 @@ function Footer() {
             A starter guide on techs to learn for web development.
           </p>
         </div>
-        <ul className="flex flex-col gap-4">
-          <li className="text-lg font-bold">Links</li>
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/about">About</Link>
-          </li>
-          <li>
-            <Link href="/privacy-policy">Privacy Policy</Link>
-          </li>
-          <li>
-            <Link href="/sitemap">Sitemap</Link>
-          </li>
+        <ul className="flex flex-col flex-wrap gap-4">
+          <li className="text-lg font-bold">Learn</li>
+          {learn.map((item) => (
+            <li>
+              <Link href={item.href} className="hover:underline">
+                {item.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <ul className="flex flex-col flex-wrap gap-4">
+          <li className="text-lg font-bold">More</li>
+          {links.map((item) => (
+            <li>
+              <Link href={item.href} className="hover:underline">
+                {item.title}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </footer>
