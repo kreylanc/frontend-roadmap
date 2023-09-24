@@ -21,7 +21,7 @@ function ThemeSwitcher({ variants }) {
   return (
     <motion.button
       variants={variants}
-      className="relative text-xl p-4 mx-2 flex justify-center items-center gap-2"
+      className="relative text-xl p-4 mx-2 flex justify-center items-center gap-2 border rounded-md border-zinc-700 bg-neutral-50 dark:bg-darkPurple duration-150"
       onClick={() => setThemeToggle(!themeToggle)}
       ref={menuRef}
       aria-expanded={themeToggle}

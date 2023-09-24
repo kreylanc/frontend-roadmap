@@ -17,6 +17,7 @@ function page() {
     },
     {
       title: "Fundamentals",
+      href: "/fundamentals",
       categories: [
         {
           title: "HTML",
@@ -34,6 +35,7 @@ function page() {
     },
     {
       title: "UI Library",
+      href: "/ui-library",
       categories: [
         {
           title: "CSS Frameworks",
@@ -51,6 +53,7 @@ function page() {
     },
     {
       title: "JavaScript Framework",
+      href: "js-framework",
       categories: [
         {
           title: "JavaScript Framework",
@@ -70,6 +73,10 @@ function page() {
       title: "About",
       href: "/about",
     },
+    {
+      title: "Privacy Policy",
+      href: "/privacy-policy",
+    },
   ];
   return (
     <main className="mx-auto w-full h-[calc(100vh-theme(height.20))] 2xl:max-w-7xl px-4 md:px-8">
@@ -80,7 +87,7 @@ function page() {
             {/* if href contains put title inside Link else inside p tag  */}
             {link.href ? (
               <Link
-                className="underline py-2 decoration-purple-500 underline-offset-2"
+                className="underline py-2 decoration-purple-500 underline-offset-2 hover:text-black dark:hover:text-white transition-colors"
                 href={link.href}
               >
                 {link.title}
@@ -94,7 +101,7 @@ function page() {
                 {link.categories.map((item) => (
                   <li>
                     <Link
-                      className="underline decoration-purple-500 underline-offset-2"
+                      className="underline decoration-purple-500 underline-offset-2 hover:text-black dark:hover:text-white transition-colors"
                       href={item.href}
                     >
                       {item.title}
