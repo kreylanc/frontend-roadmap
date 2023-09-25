@@ -27,17 +27,12 @@ function HeroSVG() {
       initial="hidden"
       animate="visible"
       className="w-full lg:w-3/5 lg:h-3/5 mb-4 stroke-neutral-900 dark:stroke-neutral-50 text-[12px] font-bold"
+      aria-labelledby="svgTitle"
+      role="img"
     >
-      {/* <motion.path
-        d="M234 299.5C221.6 255.9 182.167 250 164 252.5H176.25M227.5 224.5C220.7 247.7 198.667 252.833 188.5 252.5H176.25M176.25 252.5C194.167 252.333 233.6 255.9 248 271.5"
-        variants={draw}
-        custom={4.5}
-      />
-      <motion.path
-        d="M164 175C176.4 131.4 215.833 125.5 234 128H221.75M170.5 100C177.3 123.2 199.333 128.333 209.5 128H221.75M221.75 128C203.833 127.833 164.4 131.4 150 147"
-        variants={draw}
-        custom={2.5}
-      /> */}
+      <title id="svgTitle">
+        A curvy path with html, css and javascript as nodes
+      </title>
       <motion.path
         d="M1 21H265.5C295.047 21 319 44.9528 319 74.5V74.5C319 104.047 295.047 128 265.5 128H238H198.5H63.25C28.8703 128 1 155.87 1 190.25V190.25C1 224.63 28.8703 252.5 63.25 252.5H164H409"
         variants={draw}
