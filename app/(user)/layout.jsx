@@ -19,7 +19,7 @@ export const metadata = {
     template: "%s | Frontend Roadmap",
   },
   description:
-    "A roadmap for beginner front-end web developers to help them choose the right technologies. Learn about the fundamentals; HTML, CSS and JavaScript, along with different types of UI libraries and JavaScript frameworks.",
+    "A roadmap for beginner front-end web developers. Learn about the fundamentals along with different types of UI libraries and JavaScript frameworks.",
   icons: {
     icon: "/logo.png",
   },

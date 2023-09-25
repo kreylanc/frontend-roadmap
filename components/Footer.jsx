@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { BsTwitter } from "react-icons/bs";
 
 function Footer() {
   const learn = [
@@ -46,6 +47,13 @@ function Footer() {
           <p className="mt-1">
             A starter guide on techs to learn for web development.
           </p>
+          <Link
+            href="https://twitter.com/RoadmapFrontend"
+            className="inline-flex mt-4"
+            target="_blank"
+          >
+            <BsTwitter size="1.8em" color="#26a7de" aria-label="Twitter icon" />
+          </Link>
         </div>
         <ul className="flex flex-col flex-wrap gap-4">
           <li className="text-lg font-bold">Learn</li>

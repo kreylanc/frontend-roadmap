@@ -92,7 +92,7 @@ function SecondaryNav({ slug, navList }: Slug & Props) {
                           el.slug === slug
                             ? "bg-zinc-300/50 dark:bg-zinc-600/50"
                             : "focus:text-neutral-50 hover:bg-zinc-300/50 dark:hover:bg-zinc-600/50"
-                        } block p-1 text-neutral-600 dark:text-neutral-400 focus:bg-gray-600/50 focus:outline-none rounded-sm mt-1 cursor-pointer transition-colors`}
+                        } block p-1 text-neutral-700 dark:text-neutral-300 focus:bg-gray-600/50 focus:outline-none rounded-sm mt-1 cursor-pointer transition-colors`}
                       >
                         {el.title}
                       </Link>
