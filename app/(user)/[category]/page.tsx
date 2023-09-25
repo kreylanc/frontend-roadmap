@@ -12,13 +12,13 @@ type Props = {
 export async function generateMetadata({ params }: Props) {
   const id = params.category;
   const metaQuery = groq`
-    *[_type=='category' && slug.current == $category][0] {
+    *[_type=='category' && slug.current == $id][0] {
       title, "slug": slug.current
     }
     `;
   try {
     // fetching data with id as a parameter; the value of $id in the query is replaced by { id }
-    const metaData: Post = await client.fetch(metaQuery, { category });
+    const metaData: Category = await client.fetch(metaQuery, { id });
     if (!metaData) {
       return {
         title: "Page not found",
@@ -26,28 +26,26 @@ export async function generateMetadata({ params }: Props) {
       };
     }
     return {
-      title: metaData.title,
-      //   description: metaData.description,
+      title: `${metaData?.title ?? "Default title"}`,
       alternates: {
-        canonical: `${metaData.slug.current}`,
+        canonical: metaData.slug,
       },
       openGraph: {
         title: metaData.title,
-        // description: metaData.description,
       },
       twitter: {
         title: metaData.title,
-        // description: metaData.description,
       },
     };
   } catch (error) {
     return {
-      title: " Page not found",
+      title: "Page not found",
       description: "The page you are looking for does not exist.",
     };
   }
 }
-export default async function page({ params: { category } }: Props) {
+
+async function page({ params: { category } }: Props) {
   // query to get the post that matches with the slug
   const query = groq`
    *[_type=='category' && slug.current==$category] {
@@ -64,8 +62,10 @@ export default async function page({ params: { category } }: Props) {
     notFound();
   }
   return (
-    <div>
+    <main>
       <TopicList posts={posts} />
-    </div>
+    </main>
   );
 }
+
+export default page;
