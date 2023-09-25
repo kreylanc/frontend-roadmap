@@ -8,8 +8,6 @@ import Dropdown from "./dropdown/Dropdown";
 import { motion } from "framer-motion";
 import DropdownItem from "./dropdown/DropdownItem";
 
-type Props = {};
-
 function ThemeSwitcher({ variants }) {
   const [themeToggle, setThemeToggle] = useState(false);
 
@@ -27,25 +25,25 @@ function ThemeSwitcher({ variants }) {
       aria-expanded={themeToggle}
     >
       {isSystem ? (
-        <TbSunMoon size="1.2em" />
+        <TbSunMoon size="1.2em" aria-label="Sun/Moon icon" />
       ) : isDarkMode ? (
-        <TbMoon size="1.2em" />
+        <TbMoon size="1.2em" aria-label="Moon icon" />
       ) : (
-        <TbSun size="1.2em" />
+        <TbSun size="1.2em" aria-label="Sun icon" />
       )}
       Theme
       {themeToggle && (
         <Dropdown>
           <DropdownItem toggle={disable}>
-            <TbSun />
+            <TbSun aria-label="Sun icon" />
             Light
           </DropdownItem>
           <DropdownItem toggle={enable}>
-            <TbMoon />
+            <TbMoon aria-label="Moon icon" />
             Dark
           </DropdownItem>
           <DropdownItem toggle={enableSystem}>
-            <TbSunMoon /> System
+            <TbSunMoon aria-label="Sun/Moon icon" /> System
           </DropdownItem>
         </Dropdown>
       )}

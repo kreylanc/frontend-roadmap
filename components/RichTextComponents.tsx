@@ -139,7 +139,11 @@ export const RichTextComponents = {
             target="_blank"
           >
             {children}
-            <TbExternalLink size="1.2em" className="ml-1 inline" />
+            <TbExternalLink
+              aria-label="external link icon"
+              size="1.2em"
+              className="ml-1 inline"
+            />
           </Link>
         ) : (
           <Link
@@ -148,7 +152,10 @@ export const RichTextComponents = {
             className="inline underline  text-purple-800 decoration-purple-600 hover:decoration-primaryYellow dark:text-purple-400"
           >
             {children}
-            <TbExternalLink className="inline" />
+            <TbExternalLink
+              aria-label="external link icon"
+              className="inline"
+            />
           </Link>
         )
       );
