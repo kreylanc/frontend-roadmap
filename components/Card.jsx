@@ -9,8 +9,8 @@ function Card({ title, description, imgUrl }) {
           className=" w-auto h-16 md:h-24 lg:h-28 object-contain self-start"
           src={urlFor(imgUrl).url()}
           alt={imgUrl.alt}
-          width={80}
-          height={80}
+          width={96}
+          height={96}
         />
       ) : (
         <div className="h-24 text-rose-500">Cant load image</div>

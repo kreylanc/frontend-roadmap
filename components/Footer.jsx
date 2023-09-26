@@ -39,8 +39,9 @@ function Footer() {
             <Image
               src="/logo.svg"
               alt="logo of stylized R using brackets and backward slash"
-              width={35}
-              height={35}
+              width={256}
+              height={256}
+              className="h-8 w-8"
             ></Image>
             <span className="font-bold">Frontend Roadmap</span>
           </Link>
@@ -53,6 +54,7 @@ function Footer() {
             target="_blank"
           >
             <BsTwitter size="1.8em" color="#26a7de" aria-label="Twitter icon" />
+            <span className="sr-only">Frontend Roadmap Twitter</span>
           </Link>
         </div>
         <ul className="flex flex-col flex-wrap gap-4">

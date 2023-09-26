@@ -57,11 +57,13 @@ function Header() {
       <Link href="/" className="text-3xl">
         {/* Logo */}
         <Image
-          src="/logo.png"
+          src="/logo.svg"
           alt="logo of stylized R using brackets and backward slash"
-          width={50}
-          height={50}
+          width={256}
+          height={256}
+          className="w-12 h-12"
         ></Image>
+        <span className="sr-only">Home</span>
       </Link>
       {/* using button for better accessibility menu bar */}
       <button
