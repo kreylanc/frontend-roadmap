@@ -30,7 +30,7 @@ export const metadata = {
     title: "Frontend Roadmap",
     description:
       "A roadmap for beginner front-end web developers to help them choose the right technologies.",
-    url: "https://frontendroadmap.com",
+    url: "https://www.frontendroadmap.com",
     siteName: "Frontend Roadmap",
   },
   twitter: {
@@ -38,6 +38,8 @@ export const metadata = {
     title: "Frontend Roadmap",
     description:
       "A roadmap for beginner front-end web developers to help them choose the right technologies.",
+    site: "@RoadmapFrontend",
+    creator: "@RoadmapFrontend",
   },
 };
 
