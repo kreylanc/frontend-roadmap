@@ -20,11 +20,20 @@ export const metadata = {
   },
   description:
     "A roadmap for beginner front-end web developers. Learn about the fundamentals along with different types of UI libraries and JavaScript frameworks.",
+  keywords: [
+    "Front-end",
+    "HTML",
+    "CSS",
+    "React",
+    "JavaScript",
+    "Frameworks",
+    "Next.js",
+  ],
   icons: {
     icon: "/logo.png",
   },
   alternates: {
-    canonical: "https://www.frontendroadmap.com",
+    canonical: "/",
   },
   openGraph: {
     title: "Frontend Roadmap",
