@@ -52,7 +52,7 @@ export default async function Home() {
           </p>
           <Link
             href="/#content"
-            className="uppercase bg-primaryYellow text-darkPurple tracking-wider p-3 mt-6 text-center rounded-md md:self-start md:px-12 transition-transform"
+            className="uppercase bg-primaryYellow text-darkPurple tracking-wider p-3 mt-6 text-center rounded-md md:self-start md:px-12 transition-all hover:brightness-90"
           >
             Begin
           </Link>
