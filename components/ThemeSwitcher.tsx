@@ -19,7 +19,7 @@ function ThemeSwitcher({ variants }) {
   return (
     <motion.button
       variants={variants}
-      className="relative text-xl p-4 mx-2 flex justify-center items-center gap-2 border rounded-md border-zinc-700 bg-neutral-50 dark:bg-darkPurple duration-150"
+      className="relative text-xl p-4 mx-2 flex justify-center items-center gap-2 border rounded-md border-zinc-700 bg-neutral-50 dark:bg-darkPurple focus:border-primaryYellow hover:border-primaryYellow hover:bg-gray-600/10 focus:bg-gray-600/10 dark:focus:bg-gray-600/40 dark:hover:bg-gray-600/40 duration-150"
       onClick={() => setThemeToggle(!themeToggle)}
       ref={menuRef}
       aria-expanded={themeToggle}
